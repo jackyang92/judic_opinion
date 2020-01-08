@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hw.sentiment.mapper.PubInfoDepartmentWorkMapper">
+
+    <insert id="insert" parameterType="com.hw.sentiment.domain.PubInfoDepartmentWork">
+        insert into pubinfodepartmentwork (id, wid, PubInfoDepartmentWorkType,PubInfoDepartmentWorkContent
+
+        )
+        values (#{id},#{wid}, #{PubInfoDepartmentWorkType}, #{PubInfoDepartmentWorkContent})
+    </insert>
+
+    <!--<select id="get" parameterType="java.lang.String" resultType="java.lang.String">
+        select PubInfoTopicID from realtimewarningnotice where PubInfoTopicID = #{PubInfoTopicID};
+    </select>
+
+    <select id="query" parameterType="java.lang.String" resultType="com.hw.sentiment.domain.RealTimeWarningNotice">
+        select * from realtimewarningnotice where PubInfoTopicID = #{PubInfoTopicID};
+    </select>-->
+    <select id="findByWid" resultType="com.hw.sentiment.dto.PubInfoDepartmentWorkInputDTO">
+        select * from pubinfodepartmentwork where wid = #{wid}
+    </select>
+</mapper>
